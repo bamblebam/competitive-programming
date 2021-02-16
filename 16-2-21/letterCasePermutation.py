@@ -11,7 +11,6 @@ class Solution(object):
             temp = list(S)
             temp[i] = S[i].upper() if S[i].islower() else S[i].lower()
             self.letterCasePermutationAux("".join(temp), i+1)
-
         self.letterCasePermutationAux(S, i+1)
 
     def letterCasePermutation(self, S):
