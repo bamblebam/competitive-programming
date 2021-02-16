@@ -1,60 +1,23 @@
-class Solution:
-    def letterCasePermutation(self, S):
-        answers = list()
-        length = len(S)
-        if length == 1:
-            if S[0].isalpha():
-                return [S[0].lower(), S[0].upper()]
-            return [S[0]]
-        for i in range(length):
+class Solution(object):
+    ans = []
+
+    def letterCasePermutationAux(self, S, i=0):
+
+        if i >= len(S):
+            self.ans.append(S)
+            return
+
+        if S[i].isalpha():
             temp = list(S)
-            if temp[i].isalpha():
-                for j in range(length):
-                    temp[i] = temp[i].lower()
-                    if j == i:
-                        answers.append("".join(temp))
-                    else:
-                        if temp[j].isalpha():
-                            temp[j] = temp[j].lower()
-                            answers.append("".join(temp))
-                            temp[j] = temp[j].upper()
-                            answers.append("".join(temp))
-                        else:
-                            answers.append("".join(temp))
-                    if j == i:
-                        answers.append("".join(temp))
-                    else:
-                        if temp[j].isalpha():
-                            temp[j] = temp[j].upper()
-                            answers.append("".join(temp))
-                            temp[j] = temp[j].lower()
-                            answers.append("".join(temp))
-                        else:
-                            answers.append("".join(temp))
-                    temp[i] = temp[i].upper()
-                    if j == i:
-                        answers.append("".join(temp))
-                    else:
-                        if temp[j].isalpha():
-                            temp[j] = temp[j].upper()
-                            answers.append("".join(temp))
-                            temp[j] = temp[j].lower()
-                            answers.append("".join(temp))
-                        else:
-                            answers.append("".join(temp))
-                    if j == i:
-                        answers.append("".join(temp))
-                    else:
-                        if temp[j].isalpha():
-                            temp[j] = temp[j].lower()
-                            answers.append("".join(temp))
-                            temp[j] = temp[j].upper()
-                            answers.append("".join(temp))
-                        else:
-                            answers.append("".join(temp))
-            else:
-                answers.append("".join(temp))
-        return set(answers)
+            temp[i] = S[i].upper() if S[i].islower() else S[i].lower()
+            self.letterCasePermutationAux("".join(temp), i+1)
+
+        self.letterCasePermutationAux(S, i+1)
+
+    def letterCasePermutation(self, S):
+        self.ans = []
+        self.letterCasePermutationAux(S)
+        return self.ans
 
 
 sol = Solution()
