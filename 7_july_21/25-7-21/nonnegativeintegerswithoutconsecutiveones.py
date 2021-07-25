@@ -16,3 +16,4 @@ class Solution:
                 prev=1
             ans+=dp[-i-1]
         return ans
+    
