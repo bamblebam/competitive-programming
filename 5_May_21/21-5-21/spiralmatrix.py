@@ -18,3 +18,23 @@ class Solution:
                 di = (di+1) % 4
                 r, c = r+dr[di], c+dc[di]
         return ans
+
+# class Solution:
+#     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+#         ans=list()
+#         rows=len(matrix)
+#         cols=len(matrix[0])
+#         visited=[[False]*cols for _ in range(rows)]
+#         dr=[0,1,0,-1]
+#         dc=[1,0,-1,0]
+#         r=c=di=0
+#         for _ in range(rows*cols):
+#             ans.append(matrix[r][c])
+#             visited[r][c]=True
+#             nr,nc=r+dr[di], c+dc[di]
+#             if 0<=nr<rows and 0<=nc<cols and not visited[nr][nc]:
+#                 r,c=nr,nc
+#             else:
+#                 di=(di+1)%4
+#                 r,c=r+dr[di],c+dc[di]
+#         return ans
