@@ -29,3 +29,29 @@ class Solution:
                         return True
                 queue, temp = temp, queue
         return False
+
+    
+        # alternative solution
+        # def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        # #put all elements in queue according to their level, use None to separate them, check lvl of required stuff
+        # queue=deque([(root,None),(None,None)])
+        # l=0
+        # a,b=0,0
+        # while queue:
+        #     node,par=queue.popleft()
+        #     if node is None and queue:
+        #         queue.append((None,None))
+        #         l+=1
+        #         continue
+        #     if node is None:
+        #         break
+        #     if node.val==x:
+        #         a=(par,l)
+        #     if node.val==y:
+        #         b=(par,l)
+        #     if node.left:
+        #         queue.append((node.left,node))
+        #     if node.right:
+        #         queue.append((node.right,node))
+        # return a[1]==b[1] and a[0]!=b[0]
+            
