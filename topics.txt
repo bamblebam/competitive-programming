@@ -1,0 +1,10 @@
+graphs
+multi source graphs (BFS, DFS, etc.)
+maximum/minimum distance from one/multiple node to all other nodes
+maximum/minimum distance from all nodes to one/multiple node
+
+Trie
+
+Segment Tree
+
+Bitwise stuff
