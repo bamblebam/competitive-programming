@@ -8,3 +8,5 @@ Trie
 Segment Tree
 
 Bitwise stuff
+
+git check
