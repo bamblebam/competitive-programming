@@ -9,4 +9,4 @@ Segment Tree
 
 Bitwise stuff
 
-git check
+the longest node weighted path
