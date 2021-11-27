@@ -10,3 +10,5 @@ Segment Tree
 Bitwise stuff
 
 the longest node weighted path
+
+sweep line algorithm
