@@ -1,19 +1,23 @@
+from functools import cmp_to_key
+
 class Solution:
-    def wordCount(self, startWords: List[str], targetWords: List[str]) -> int:
-        #use a set to store the sorted startwords
-        #go through the targetwords, sort them and remove a letter one by one and check if they are in the set
-        #do not use dict for each word it gives TLE
-        lookup=set()
-        for word in startWords:
-            lookup.add("".join(sorted(word)))
+    def earliestFullBloom(self, plantTime: List[int], growTime: List[int]) -> int:
+        #done using exchange argument algorithm
+        #sort the list in such way that they are compare on the basis of total grow time (kinda confusing)
+        #then just normally iterate through it and update latest and curr
+        #latest is max time or ans, curr is the max plant time
+        def compare(a,b):
+            p1,g1=a
+            p2,g2=b
+            return (p1+max(g1,p2+g2))-(p2+max(g2,p1+g1))
         
-        count=0
-        for word in targetWords:
-            t=len(word)
-            word="".join(sorted(word))
-            for i in range(t):
-                if word[:i]+word[i+1:] in lookup:
-                    count+=1
-                    break
-                    
-        return count
+        times=list(zip(plantTime,growTime))
+        times.sort(key=cmp_to_key(compare))
+        
+        latest,curr=0,0
+        for p,g in times:
+            latest=max(latest,p+g+curr)
+            curr+=p
+        
+        return latest
+        
